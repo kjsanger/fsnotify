@@ -28,6 +28,7 @@ const (
 	Write
 	Remove
 	Rename
+	Movedto
 	Chmod
 	Close
 )
@@ -47,6 +48,9 @@ func (op Op) String() string {
 	}
 	if op&Rename == Rename {
 		buffer.WriteString("|RENAME")
+	}
+	if op&Movedto == Movedto {
+		buffer.WriteString("|MOVEDTO")
 	}
 	if op&Chmod == Chmod {
 		buffer.WriteString("|CHMOD")
